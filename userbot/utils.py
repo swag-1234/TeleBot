@@ -107,6 +107,9 @@ def load_module(shortname):
         mod.Config = Config
         mod.borg = bot
         mod.telebot = bot
+        # auto-load
+        mod.admin_cmd = admin_cmd
+        mod.sudo_cmd = sudo_cmd
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
