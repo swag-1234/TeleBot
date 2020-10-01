@@ -11,6 +11,7 @@ import asyncio
 from userbot.utils import admin_cmd
 
 @telebot.on(admin_cmd(pattern="info"))
+@telebot.on(sudo_cmd(pattern="info"))
 async def _(event):
     if event.fwd_from:
         return

