@@ -8,7 +8,7 @@
 
 import asyncio
 
-from userbot.utils import admin_cmd
+from userbot.utils import admin_cmd, sudo_cmd
 
 @telebot.on(admin_cmd(pattern="info"))
 @telebot.on(sudo_cmd(pattern="info"))
