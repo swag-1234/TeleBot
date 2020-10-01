@@ -335,8 +335,9 @@ def sudo_cmd(pattern=None, **args):
     args["incoming"] = True
     # should this command be available for other users?
     if allow_sudo:
-        args["from_users"] = list(Var.SUDO_USERS)
-
+        args["from_users"] = list(Config.SUDO_USERS)
+        # Mutually exclusive with outgoing (can only set one of either).
+        args["incoming"] = True
         del args["allow_sudo"]
 
     # error handling condition check
