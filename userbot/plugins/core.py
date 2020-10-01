@@ -34,7 +34,7 @@ async def install(event):
     await asyncio.sleep(DELETE_TIMEOUT)
     await event.delete()
 
-@telebot.on(pattern="unload (?P<shortname>\w+)$", outgoing=True))
+@telebot.on(admin_cmd(pattern="unload (?P<shortname>\w+)$", outgoing=True))
 async def unload(event):
     if event.fwd_from:
         return
