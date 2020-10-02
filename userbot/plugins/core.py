@@ -45,7 +45,7 @@ async def unload(event):
     except Exception as e:
         await event.edit("TeleBot has successfully unloaded {shortname}\n{}".format(shortname, str(e)))
 
-@telebot.on(admn_cmd(pattern="load (?P<shortname>\w+)$", outgoing=True))
+@telebot.on(admin_cmd(pattern="load (?P<shortname>\w+)$", outgoing=True))
 async def load(event):
     if event.fwd_from:
         return
