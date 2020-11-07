@@ -37,7 +37,7 @@ myid = bot.uid
 MESAG = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
-    else "`TeleBot PM security! Please wait for me to approve you. 😊"
+    else "`R.E.E.S.H.U. PM security! Please wait for me to approve you. 😊"
 )
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TeleBot User"
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
